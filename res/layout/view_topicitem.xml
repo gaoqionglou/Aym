@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+<RelativeLayout 
+    android:id="@+id/rl_1"
+    android:layout_width="130dp"
+    android:layout_height="90dp"
+    >
+    <ImageView
+        android:id="@+id/topic_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/image3"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        />
+    
+</RelativeLayout>    
+<RelativeLayout 
+    android:id="@+id/ll_1"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical"
+    android:layout_toRightOf="@+id/rl_1"
+    android:padding="5dp"
+    >
+    <TextView 
+        android:id="@+id/topic_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手机里最美的一张图"
+        android:layout_marginBottom="10dp"
+          android:layout_marginTop="10dp"
+        />
+    <TextView 
+        android:id="@+id/topic_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topic_title"
+        android:text="生活点滴，最美回忆"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/gray"
+        />
+        <TextView 
+        android:id="@+id/topic_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/topic_introduction"
+        android:text="100个帖子"
+        android:visibility="gone"
+         android:textColor="@color/gray"
+        />
+
+</RelativeLayout>   
+</LinearLayout>

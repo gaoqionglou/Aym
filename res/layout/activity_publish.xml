@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+
+        android:layout_alignParentTop="true"
+        style="@style/activity_topbar" >
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/topbar_title"
+            style="@style/activity_title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/btn_back"
+            android:text="发布" />
+
+        <Button
+            android:id="@+id/btn_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_publish_selector"
+            
+            android:text="发布"
+            android:textColor="@color/green"
+            android:textSize="@dimen/txt_large_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_rl"
+        android:layout_below="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher" 
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            />
+
+        <EditText
+            android:id="@+id/ed_publish"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rl"
+            android:layout_below="@+id/pic"
+            android:background="#FFFFF0"
+            android:gravity="top"
+            android:hint="你想说些什么呢~"
+            android:padding="5dp"
+            android:textSize="@dimen/txt_mid_size" />
+        <RelativeLayout 
+            android:id="@+id/location_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rl"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/bg_location"
+            android:padding="5dp"
+            >
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:indeterminate="false"
+                android:indeterminateDrawable="@drawable/location_progress"
+                
+                android:maxHeight="30dp"
+                android:maxWidth="30dp"
+                android:minHeight="10dp"
+                android:minWidth="10dp"
+                android:visibility="visible"
+                 />
+
+            <TextView
+                android:id="@+id/tv_loaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/progressBar"
+                android:layout_toRightOf="@+id/progressBar"
+                android:text="获取位置中..."
+                android:textSize="@dimen/txt_mid_size" />
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_loaction"
+                android:layout_alignLeft="@+id/progressBar"
+                android:src="@drawable/icon_loaction"
+                android:visibility="invisible" />
+            
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" >
+
+            <LinearLayout
+                android:id="@+id/options1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/contact"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/contact_selector"
+                    android:src="@drawable/ic_contact" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/options2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/camera_selector" />
+
+                <ImageButton
+                    android:id="@+id/album"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                 
+                    android:background="@drawable/album_selector" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="TextViewEdits,HardcodedText,ContentDescription,InefficientWeight,UseCompoundDrawables,PxUsage,UselessParent,ObsoleteLayoutParam" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#00000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:id="@+id/customdialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="提示"
+                android:textColor="@color/green"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/green" />
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:background="@color/white"
+         >
+         <TextView 
+             android:id="@+id/customdialog_msg"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="left"
+             android:textColor="@color/black"
+             android:text="你确认退出app?"
+             android:textSize="@dimen/txt_mid_size"
+             android:layout_marginTop="20dp"
+             android:layout_marginBottom="20dp"
+             android:layout_marginLeft="10dp"
+             />
+         
+         
+     </LinearLayout>
+       
+        
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/grayline" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+      
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/customdialog_btnLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/customdialog_btn_selector"
+                    android:focusable="true"
+                    android:textSize="@dimen/txt_mid_size"
+                    android:text="@string/dialog_cancel"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="2px"
+                    android:layout_height="match_parent"
+                    android:background="@color/grayline" />
+
+                <Button
+                    android:id="@+id/customdialog_btnRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/customdialog_btn_selector"
+                    android:focusable="true"
+                    android:textSize="@dimen/txt_mid_size"
+                    android:text="@string/dialog_sure"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

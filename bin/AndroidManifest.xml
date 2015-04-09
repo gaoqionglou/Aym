@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gao.aym"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+- 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name="com.gao.aym.util.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+-   
+        <!-- 百度地图sdk -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="EOO0RAeg0m8Mzk9ZWpnmvYuQ" /> <!-- key:开发者申请的key -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+        <!-- 浮动窗口  service -->
+        <service android:name="com.gao.aym.service.FloatService" >
+        </service>
+
+        <activity
+            android:name="com.gao.aym.activity.WelpicActivity"
+            android:label="@string/app_name" >
+- 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+-     
+        <receiver android:name="com.gao.aym.util.ExitReceiver" >
+- 
+            <intent-filter>
+                <action android:name="android.intent.action.EXIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.gao.aym.activity.WelcomeActivity" />
+        <activity android:name="com.gao.aym.activity.LoginActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name="com.gao.aym.activity.ModifyCodeActivity" />
+        <activity
+            android:name="com.gao.aym.activity.MomentActivity"
+            android:theme="@style/StyledIndicators" />
+        <activity
+            android:name="com.gao.aym.activity.ItemActivity"
+            android:theme="@style/AppBaseTheme" />
+        <activity android:name="com.gao.aym.activity.PublishActivity" />
+        <activity android:name="com.gao.aym.activity.ContactActivity" />
+        <activity android:name="com.gao.aym.activity.TopicActivity" />
+        <activity android:name="com.gao.aym.activity.SortActivity" />
+        <activity android:name="com.gao.aym.activity.AboutActivity" />
+        <activity android:name="com.gao.aym.activity.SettingActivity" />
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gao.aym.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

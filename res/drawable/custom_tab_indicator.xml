@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 选中 -->
+    <item android:state_focused="true"  android:drawable="@drawable/base_tabpager_indicator_selected"></item>
+    <item android:state_pressed="true"  android:drawable="@drawable/base_tabpager_indicator_selected"></item>
+    <item android:state_selected="true"  android:drawable="@drawable/base_tabpager_indicator_selected"></item>
+    <!-- 正常  -->
+    <item  android:drawable="@drawable/base_action_bar_bg"></item>
+
+</selector>
