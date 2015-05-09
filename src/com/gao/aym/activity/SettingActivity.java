@@ -55,7 +55,7 @@ public class SettingActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
 		application = (MyApplication) getApplication();
-		phonenum = application.getPhonenum();
+		phonenum = getIntent().getStringExtra("phonenum");
 		Log.i(TAG, "phonenum->"+phonenum);
 		downloadFile=new File(Environment.getExternalStorageDirectory(), "aym.apk");
 		handler = new Handler(){

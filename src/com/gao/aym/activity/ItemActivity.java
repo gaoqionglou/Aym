@@ -55,7 +55,7 @@ import android.widget.Toast;
 
 public class ItemActivity extends BaseActivity implements OnClickListener {
 	private ImageView image, iv_share, iv_comment, iv_zan;
-	private TextView tv_like_num, tv_comment_num,tv_msg,empty_view;
+	private TextView tv_like_num, tv_comment_num,tv_msg,empty_view,tv_topic;
 	private ListView comment_list;
 	private EditText ed_com;
 	private Button btn_send;
@@ -131,7 +131,13 @@ public class ItemActivity extends BaseActivity implements OnClickListener {
 		} else {
 			tv_comment_num.setText("");
 		}
-		
+		//话题
+		tv_topic=(TextView)findViewById(R.id.tv_topic);
+		if(item.getTopic()!=null&&!"".equals(item.getTopic())){
+			tv_topic.setText("#"+item.getTopic()+"#");
+		}else{
+			tv_topic.setText("");
+		}
 		if (Integer.parseInt(item.getLike_num()) != 0) {
 			tv_like_num.setTextColor(Color.RED);
 			tv_like_num.setText(item.getLike_num());
@@ -372,19 +378,12 @@ public class ItemActivity extends BaseActivity implements OnClickListener {
 			    comments.addLast(comment);
 			    adapter.notifyDataSetChanged();
 			    setListViewHeightBasedOnChildren(comment_list);
-			    loadingDialog.setLoadingImage(R.drawable.success);
-			    loadingDialog.setLoadingTip("评论成功");
-			    loadingDialog.show(true);
+			   Toast.makeText(ItemActivity.this, "评论成功", Toast.LENGTH_LONG).show();
+			    
+
 			    ed_com.setText("");
 			}
-			new Handler().postDelayed(new Runnable() {
-				
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					if(loadingDialog.isShowing()) loadingDialog.dismiss();
-				}
-			}, 1800);
+
 		}
 	}
 	

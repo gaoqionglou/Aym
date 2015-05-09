@@ -133,10 +133,10 @@ public class SortActivity extends BaseActivity {
 			if (max == 0) {
 				max = flag;
 			} else { // max不为0
-				int a = flag - max;
-				String msg = a>= 0 ? "暂无新消息" : "为你更新" + a + "条消息";
+//				int a = flag - max;
+//				String msg = a>= 0 ? "暂无新消息" : "为你更新" + a + "条消息";
 				sortlist.onRefreshComplete();
-				Toast.makeText(SortActivity.this, msg, 1).show();
+//				Toast.makeText(SortActivity.this, msg, 1).show();
 			}
 			to = max;
 			from = to - 4;

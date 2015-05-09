@@ -68,6 +68,9 @@ public class ModifyCodeActivity extends BaseActivity implements OnClickListener 
 		ed_password2.addTextChangedListener(new MyTextWatcher(ed_password2));
 		btn_back.setOnClickListener(this);
 		btn_modify.setOnClickListener(this);
+		del_password.setOnClickListener(this);
+		del_password2.setOnClickListener(this);
+		del_phone.setOnClickListener(this);
 	}
 
 	class MyTextWatcher implements TextWatcher {
@@ -104,6 +107,8 @@ public class ModifyCodeActivity extends BaseActivity implements OnClickListener 
 					del_password2.setVisibility(View.INVISIBLE);
 				}
 				break;
+
+		
 			default:
 				break;
 			}
@@ -173,6 +178,14 @@ public class ModifyCodeActivity extends BaseActivity implements OnClickListener 
 				}
 			}
 			break;
+		case R.id.del_phone:
+			ed_phonenum.setText("");
+		case R.id.del_password:
+			ed_password.setText("");
+			break;
+		case R.id.del_password2:
+			ed_phonenum.setText("");
+			break;
 		default:
 			break;
 		}
@@ -218,8 +231,8 @@ public class ModifyCodeActivity extends BaseActivity implements OnClickListener 
 				jsonObject = new JSONObject(result);
 				String head = jsonObject.getString("head");
 				if ("111".equals(head)) {
-					loadingDialog.setLoadingImage(R.drawable.ic_success);
-					loadingDialog.setLoadingTip("修改成功！");
+					loadingDialog.dismiss();
+					Toast.makeText(ModifyCodeActivity.this, "修改成功！", 1).show();
 					new Handler().postDelayed(new Runnable() {
 
 						@Override

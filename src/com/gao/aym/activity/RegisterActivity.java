@@ -72,6 +72,9 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 		ed_password2.addTextChangedListener(new MyTextWatcher(ed_password2));
 		btn_back.setOnClickListener(this);
 		btn_reg.setOnClickListener(this);
+		del_password.setOnClickListener(this);
+		del_password2.setOnClickListener(this);
+		del_phone.setOnClickListener(this);
 	}
 
 	class MyTextWatcher implements TextWatcher {
@@ -170,6 +173,14 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			}
 			}
 			break;
+		case R.id.del_phone:
+			ed_phonenum.setText("");
+		case R.id.del_password:
+			ed_password.setText("");
+			break;
+		case R.id.del_password2:
+			ed_phonenum.setText("");
+			break;
 		default:
 			break;
 		}
@@ -215,16 +226,8 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 				jsonObject = new JSONObject(result);
 				String head = jsonObject.getString("head");
 				if ("11".equals(head)) {
-					loadingDialog.setLoadingImage(R.drawable.ic_success);
-					loadingDialog.setLoadingTip("注册成功！");
-					new Handler().postDelayed(new Runnable() {
-						
-						@Override
-						public void run() {
-							// TODO Auto-generated method stub
-							loadingDialog.dismiss();
-						}
-					}, 2000);
+					loadingDialog.dismiss();
+					Toast.makeText(RegisterActivity.this,"注册成功！" , 1).show();
 					Intent intent = new Intent(RegisterActivity.this,
 							LoginActivity.class);
 					Bundle bundle = new Bundle();
@@ -232,6 +235,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 					bundle.putString("password", password);
 					intent.putExtras(bundle);
 					startActivity(intent);
+					finish();
 				}else if("10".equals(head)){
 					loadingDialog.dismiss();
 					Toast.makeText(RegisterActivity.this, "该用户已被注册！",1).show();

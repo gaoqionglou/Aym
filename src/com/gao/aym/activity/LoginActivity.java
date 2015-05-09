@@ -166,6 +166,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			 intent = new Intent();
 			intent.setClass(LoginActivity.this, RegisterActivity.class);
 			startActivity(intent);
+			finish();
 			break;
 		case R.id.btn_login:
 			// ，检测手机号码的合法性

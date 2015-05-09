@@ -109,7 +109,8 @@ public class ContactActivity extends BaseActivity {
 				Intent publish = new Intent(ContactActivity.this,PublishActivity.class);
 				LetterContact contact= (LetterContact)adapter.getItem(position);
 				publish.putExtra("person", contact.getName());
-				startActivity(publish);
+//				startActivityForResult(publish,99);
+				setResult(99, publish);
 				finish();
 			}
 		});

@@ -47,7 +47,7 @@ import android.util.Log;
 public class HttpRequest {
 	
 	public static final String HOST = "http://172.25.161.5:8080/AymServer/";
-//	public static final String HOST = "http://192.168.253.4:8080/AymServer/";
+//	public static final String HOST = "http://192.168.155.5:8080/AymServer/";
 	public static final String URI_LOGIN = HOST + "login.action";
 	public static final String URI_REGISTER = HOST + "register.action";
 	public static final String URI_MODIFYCODE = HOST + "modify.action";

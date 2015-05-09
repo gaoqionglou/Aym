@@ -27,6 +27,7 @@ import com.baidu.location.LocationClientOption.LocationMode;
 import com.gao.aym.R;
 import com.gao.aym.util.HttpRequest;
 import com.gao.aym.util.MyApplication;
+import com.gao.aym.view.LoadingDialog;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -84,7 +85,7 @@ public class PublishActivity extends BaseActivity {
 	private static final int CAMERA_TAKE_PIC = 1;
 	private static final int CROP_PIC = 2;
 	private static final int CHOOSE_ALBUM_PIC = 3;
-
+    private LoadingDialog loadingDialog;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -141,6 +142,8 @@ public class PublishActivity extends BaseActivity {
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
 		tv_location = (TextView) findViewById(R.id.tv_loaction);
 		tv_location.setText("获取位置...");
+		loadingDialog=new LoadingDialog(this, R.style.loading_dialog);
+		loadingDialog.setLoadingTip("正在提交");
 	}
 
 	private void InitLocation() {
@@ -186,10 +189,10 @@ public class PublishActivity extends BaseActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// @人
-				finish();
+				
 				Intent contact = new Intent(PublishActivity.this,
 						ContactActivity.class);
-				startActivity(contact);
+				startActivityForResult(contact,99);
 			}
 		});
 		btn_camera.setOnClickListener(new View.OnClickListener() {
@@ -245,6 +248,13 @@ public class PublishActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
+		case 99:
+			person = data.getStringExtra("person");
+			topic = data.getStringExtra("topic");
+			if (person != null) {
+				ed_publish.append("@" + person + " ");
+			}
+			break;
 		case CAMERA_TAKE_PIC:
 			cropImageUri(mPhotoUriOnSDcard, 800, 400, CROP_PIC);
 			break;
@@ -361,6 +371,7 @@ public class PublishActivity extends BaseActivity {
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
+			loadingDialog.show(false);
 			Log.i(TAG, " into publish task");
 		}
 
@@ -400,6 +411,7 @@ public class PublishActivity extends BaseActivity {
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
+			loadingDialog.dismiss();
 			Log.i(TAG, "发布结果->" + result);
 			if ("1".equals(result)) {
 				Toast.makeText(PublishActivity.this, "发表成功", 1).show();
@@ -413,11 +425,7 @@ public class PublishActivity extends BaseActivity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		person = getIntent().getStringExtra("person");
-		topic = getIntent().getStringExtra("topic");
-		if (person != null) {
-			ed_publish.append("@" + person + " ");
-		}
 
 	}
+	
 }

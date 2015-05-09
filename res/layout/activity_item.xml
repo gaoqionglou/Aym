@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="#致敬青春#"
+                    android:text=""
                     android:textColor="@color/yellow"
                     android:textSize="@dimen/txt_samll_size" />
 

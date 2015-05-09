@@ -17,7 +17,7 @@
     android:id="@+id/tv_msg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="哇哇哇哈哈哈哈哈哈哈哈"
+    android:text=""
     android:textSize="@dimen/txt_large_size"
     android:textColor="@color/black"
     android:layout_marginTop="5dp"
@@ -38,7 +38,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="left"
-    android:text="#致敬青春#"
+    android:text=""
     android:textColor="@color/yellow"
     android:textSize="@dimen/txt_mid_size"
     />
